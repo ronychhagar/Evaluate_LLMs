@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llm-eval"
+version = "0.1.0"
+description = "A reusable framework for evaluating LLM prompts, models, and retrievers."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "LLM Eval contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.34"]
+openai = ["openai>=1.40"]
+all-providers = ["anthropic>=0.34", "openai>=1.40"]
+dev = ["pytest>=8.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llm_eval"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
